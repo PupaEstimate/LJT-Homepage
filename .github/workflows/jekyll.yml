@@ -46,11 +46,15 @@ jobs:
       - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v6.0.0
+        # On forks the Pages site may not exist yet and the integration token
+        # may not be allowed to create it; do not block the Jekyll build on it.
+        continue-on-error: true
         with:
           enablement: true
       - name: Build with Jekyll
-        # Outputs to the './_site' directory by default
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        # Outputs to the './_site' directory by default; fall back to the
+        # project-page base path when Pages metadata is unavailable.
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path || '/LJT-Homepage' }}"
         env:
           JEKYLL_ENV: production
       - name: Upload GitHub Pages artifact
