@@ -31,7 +31,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: '24'        
+          node-version: '24'
       - name: Setup Ruby, JRuby and TruffleRuby
         uses: ruby/setup-ruby@v1.328.0
         with:
@@ -43,20 +43,18 @@ jobs:
       - name: Minify JS files
         run: |
           uglifyjs assets/js/plugins/jquery.greedy-navigation.js assets/js/_main.js assets/js/theme.js -c -m -o assets/js/main.min.js
+      # On forks the Pages site may not exist yet and the integration token
+      # may not be allowed to create it; this step must not block the build.
       - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v6.0.0
-        # On forks the Pages site may not exist yet and the integration token
-        # may not be allowed to create it; do not block the Jekyll build on it.
         continue-on-error: true
         with:
           enablement: true
       - name: Build with Jekyll
-        # Outputs to the './_site' directory by default; fall back to the
-        # project-page base path when Pages metadata is unavailable.
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path || '/LJT-Homepage' }}"
         env:
           JEKYLL_ENV: production
+        run: bundle exec jekyll build --baseurl "/LJT-Homepage"
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v5.0.0
 
