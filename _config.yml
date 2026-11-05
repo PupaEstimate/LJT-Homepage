@@ -1,0 +1,124 @@
+# Basic Site Settings
+locale: "en-US"
+site_theme: "default" # themes: "default", "air", "sunrise", "mint", "dirt", "contrast"
+title: "Junteng Liu"
+title_separator: "-"
+name: "Junteng Liu"
+description: "Junteng Liu is a first-year PhD candidate at the HKUST NLP Group. His research focuses on natural language processing and machine learning."
+url: https://pupaestimate.github.io
+baseurl: "/LJT-Homepage" # subpath of the project site
+repository: "PupaEstimate/LJT-Homepage"
+
+# Sidebar author profile
+ author:
+  avatar: "profile.png"
+  name: "Junteng Liu"
+  bio: "First-year PhD candidate at the HKUST NLP Group. Research focuses on natural language processing and machine learning; research interests include LLM Reasoning and Reinforcement Learning, Hallucination in Vision-Language Models (VLM), and LLM Truthfulness and Interpretability."
+  location: "Hong Kong"
+  employer: "Hong Kong University of Science and Technology"
+  email: "jliugi@connect.ust.hk"
+  googlescholar: "https://scholar.google.com/citations?hl=en&user=tbK9jl4AAAAJ&view_op=list_works&sortby=pubdate"
+  github: "Vicent0205"
+  twitter: "junteng88716710" # X (Twitter) username
+
+# Publication categories and their headings
+publication_category:
+  preprints:
+    title: 'Preprints'
+  conferences:
+    title: 'Conference Papers'
+
+# Site Settings
+breadcrumbs: false
+future: true
+read_more: "disabled"
+talkmap_link: false
+atom_feed:
+  hide: true
+
+# Reading Files
+include:
+  - .htaccess
+  - _pages
+  - files
+
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# Collections
+collections:
+  publications:
+    output: true
+    permalink: /:collection/:path/
+
+# Front matter defaults
+defaults:
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+  # _publications
+  - scope:
+      path: ""
+      type: publications
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
+
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
+# Outputting
+permalink: /:categories/:title/
+timezone: Etc/UTC
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jemoji
+
+# Mimic GitHub Pages with --safe
+whitelist:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jemoji
+
+# HTML Compression
+# - https://jch.penibelst.de/
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  ignore:
+    envs: development
