@@ -10,7 +10,7 @@ baseurl: "/LJT-Homepage" # subpath of the project site
 repository: "PupaEstimate/LJT-Homepage"
 
 # Sidebar author profile
- author:
+author:
   avatar: "profile.png"
   name: "Junteng Liu"
   bio: "First-year PhD candidate at the HKUST NLP Group. Research focuses on natural language processing and machine learning; research interests include LLM Reasoning and Reinforcement Learning, Hallucination in Vision-Language Models (VLM), and LLM Truthfulness and Interpretability."
